@@ -53,9 +53,21 @@ public class AppTest
       ArrayList<Integer> array2=new ArrayList<>(Arrays.asList(1,5,6,7,8));
       assertFalse(new App().searchSumAndDiff(array, array2,1,2));
     }
+    public void testEmptyArray2(){
+      ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1,2,3));
+      ArrayList<Integer> array2=new ArrayList<>();
+      assertFalse(new App().searchSumAndDiff(array, array2,1,2));
+    }
+    public void testBothEmptyArray(){
+      ArrayList<Integer> array=new ArrayList<>();
+      ArrayList<Integer> array2=new ArrayList<>();
+      assertFalse(new App().searchSumAndDiff(array, array2,1,2));
+    }
 
     public void testNull() {
       assertFalse(new App().searchSumAndDiff(null,null,2, 1));
     }
+
+    
 
 }
