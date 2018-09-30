@@ -39,7 +39,7 @@ public class AppTest
     public void testFound() {
       ArrayList<Integer> array = new ArrayList<>(Arrays.asList(1, 2, 3, 4,5));
       ArrayList<Integer> array2=new ArrayList<>(Arrays.asList(1,5,6,7,8));
-      assertTrue(new App().searchSumAndDiff(array, array2,3,2));
+      assertTrue(new App().searchSumAndDiff(array, array2,5,1));
     }
 
     public void testNotFound() {
