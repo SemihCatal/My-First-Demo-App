@@ -13,14 +13,21 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
-    public static boolean search(ArrayList<Integer> array, int e) {
+    public static boolean searchSumAndDiff(ArrayList<Integer> array,ArrayList<Integer> array2,int sum ,int diff) {
       System.out.println("inside search");
       if (array == null) return false;
-
+      boolean found=false;
       for (int elt : array) {
-        if (elt == e) return true;
+        if (elt == sum) found= true;
       }
-      return false;
+      if(found){
+        for(int temp : array2){
+          if(temp == diff) return true;
+        }
+        return false;
+      }
+      else
+        return false;
     }
       public static void main(String[] args) {
         port(getHerokuAssignedPort());
@@ -45,9 +52,26 @@ public class App
 
 
           String input2 = req.queryParams("input2").replaceAll("\\s","");
-          int input2AsInt = Integer.parseInt(input2);
+          java.util.Scanner sc2 = new java.util.Scanner(input2);
+          sc2.useDelimiter("[;\r\n]+");
+          java.util.ArrayList<Integer> inputList2 = new java.util.ArrayList<>();
+          while (sc2.hasNext())
+          {
+            int value = Integer.parseInt(sc2.next().replaceAll("\\s",""));
+            inputList2.add(value);
+          }
+          System.out.println(inputList2);
 
-          boolean result = App.search(inputList, input2AsInt);
+          String input3 = req.queryParams("input3").replaceAll("\\s","");
+          int inputAsInt = Integer.parseInt(input3);
+
+          String input4=req.queryParams("input4").replaceAll("\\s", "");
+          int input2AsInt =Integer.parseInt(input4);
+          
+          int sum = inputAsInt+input2AsInt;
+          int diff= inputAsInt-input2AsInt;
+
+          boolean result = App.searchSumAndDiff(inputList, inputList2,sum,diff);
 
          Map map = new HashMap();
           map.put("result", result);
