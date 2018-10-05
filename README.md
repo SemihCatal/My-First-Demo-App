@@ -5,4 +5,4 @@ We check if sum of two numbers is in first ArrayList and difference of two numbe
 
 [![Build Status](https://travis-ci.com/SemihCatal/myDemoApp.svg?branch=master)](https://travis-ci.com/SemihCatal/myDemoApp)
 
-https://mighty-mountain-83849.herokuapp.com/
+Demo site: https://mighty-mountain-83849.herokuapp.com/
